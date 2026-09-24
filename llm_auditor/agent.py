@@ -17,7 +17,7 @@
 from google.adk.agents import SequentialAgent
 
 from .sub_agents.critic import critic_agent
-# from .sub_agents.reviser import reviser_agent  # <--- TODO: ENABLE THIS
+from .sub_agents.reviser import reviser_agent  # <--- TODO: ENABLE THIS
 
 import logging
 import google.cloud.logging
@@ -35,7 +35,7 @@ llm_auditor = SequentialAgent(
         ' web, and refines the response to ensure alignment with real-world'
         ' knowledge.'
     ),
-    sub_agents=[critic_agent], # <--- TODO: ADD reviser_agent CHECK HERE
+    sub_agents=[critic_agent,reviser_agent], # <--- TODO: ADD reviser_agent CHECK HERE
 )
 
 root_agent = llm_auditor
